@@ -11,7 +11,7 @@ import com.ctre.phoenix.led.Animation;
 public class LED extends SubsystemBase {
 
     private CANdle candle;
-    public static final int stripLength = 67;
+    public static final int stripLength = 30;
 
     // Constructor
     public LED() {
@@ -30,7 +30,7 @@ public class LED extends SubsystemBase {
     @Override
     public void periodic() {
         //If this part is uncommented it will permanently let led lights(until redeployed)
-        // alternate(255, 0, 0, 0, 255, 0, 2, 0, 8);
+        //alternate(255, 0, 0, 0, 255, 0, 2, 0, 8);
     }
 
     /**
@@ -80,7 +80,7 @@ public class LED extends SubsystemBase {
      * @param total  Total number of LEDs
      */
     public void alternate(int r1, int g1, int b1, int r2, int g2, int b2, int size, int offset, int total) {
-        // System.out.println("ALTERNATE");
+        System.out.println("ALTERNATE");
         for (int i = -offset; i < total; i += size) {
             boolean color2 = ((i - offset) / size) % 2 == 0;
             if (color2) {

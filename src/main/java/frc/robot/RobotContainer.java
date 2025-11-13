@@ -95,6 +95,7 @@ public class RobotContainer {
    * Different robots may have different subsystems.
    */
   public RobotContainer(RobotId robotId) {
+    SmartDashboard.putString("RobotId", robotId.toString());
     // dispatch on the robot
     switch (robotId) {
       case TestBed1:
@@ -117,7 +118,11 @@ public class RobotContainer {
         arm.setElevatorStowed(() -> elevator.getPosition() < ElevatorConstants.SAFE_SETPOINT - 0.025);
         // Elevator can only move down if the arm is in the intake setpoint
         elevator.setArmStowed(() -> arm.canMoveElevator());
-
+        led = new LED();
+        photoelectricSensor = new PhotoelectricSensor(1);
+        SmartDashboard.putData("alternate", new InstantCommand(() -> led.alternate(130,0,0,0,130,0,2,0,8)));
+        SmartDashboard.putData("flip", new InstantCommand(() -> led.alternate(0,130,0,0,0,130,2,0,8)));
+        
       case BetaBot:
         indexer = new Indexer();
         intake = new Intake();

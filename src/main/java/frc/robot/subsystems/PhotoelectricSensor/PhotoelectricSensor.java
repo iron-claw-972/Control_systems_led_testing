@@ -17,10 +17,10 @@ public class PhotoelectricSensor extends SubsystemBase {
 
         if (!status) {
             // grounded
-            System.out.println("GROUNDED");
+            //System.out.println("GROUNDED");
         } else {
             // not grounded
-            System.out.println("NOT GROUNDED");
+            //System.out.println("NOT GROUNDED");
         }
     }
 }
